@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal component Закрытие модалки 1`] = ``;
+
+exports[`Modal component Открытая модалка 1`] = `
+<div class="modal-wrapper">
+  <div class="modal-overlay">
+  </div>
+  <div class="close-icon">
+  </div>
+  <div class="modal">
+    <img src="https://via.placeholder.com/600/771796"
+         alt="modal-photo-image"
+    >
+  </div>
+</div>
+`;

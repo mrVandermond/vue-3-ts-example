@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title component Title показывается 1`] = `
+<div style="top: 0px; left: 0px;"
+     class="title"
+>
+  test_title
+</div>
+`;

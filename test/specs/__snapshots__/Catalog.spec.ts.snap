@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Catalog component Отображение во время загрузки 1`] = `
+<div>
+  <img class="loader"
+       src="assets/loader.gif"
+       alt="loader-image"
+  >
+</div>
+`;
+
+exports[`Catalog component Отображение во время ошибки при загрузке пользователей 1`] = `
+<div>
+  <div class="error">
+    <img src="assets/error.png"
+         class="error-image"
+         alt="error-image"
+    >
+    <div class>
+      <p class="title-text title-text__bold">
+        Сервер не отвечает
+      </p>
+      <p class="title-text">
+        Уже работаем над этим
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Catalog component Отображение списка пользователей 1`] = `
+<div>
+  <list-item-stub isinternal="false"
+                  isloadingcontent="false"
+                  isfailloadingcontent="false"
+                  class="user"
+  >
+  </list-item-stub>
+  <list-item-stub isinternal="false"
+                  isloadingcontent="false"
+                  isfailloadingcontent="false"
+                  class="user"
+  >
+  </list-item-stub>
+</div>
+`;

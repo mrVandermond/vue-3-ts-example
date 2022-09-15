@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Album component Отображение в закрытом состоянии 1`] = `
+<div class="internal list-item">
+  <div class="list-item-header">
+    <list-item-button-stub isopen="false"
+                           class="list-item-button"
+    >
+    </list-item-button-stub>
+    <div class="album-label">
+      test
+    </div>
+  </div>
+  <div class="list-item-content">
+  </div>
+</div>
+`;
+
+exports[`Album component Отображение в открытом состоянии Проверка обработки события addedToFavorites 1`] = `
+Object {
+  "photo": Object {
+    "albumId": 1,
+    "id": 1,
+    "isFavorite": true,
+    "thumbnailUrl": "https://thumbnailUrl",
+    "title": "photo",
+    "url": "https://url",
+  },
+}
+`;
+
+exports[`Album component Отображение в открытом состоянии Проверка обработки события addedToFavorites 2`] = `
+Array [
+  "ADD_TO_FAVORITES",
+  Array [
+    Object {
+      "albumId": 1,
+      "id": 1,
+      "thumbnailUrl": "https://thumbnailUrl",
+      "title": "photo",
+      "url": "https://url",
+    },
+  ],
+]
+`;
+
+exports[`Album component Отображение в открытом состоянии Проверка обработки события removeFromFavorites 1`] = `
+Object {
+  "photo": Object {
+    "albumId": 1,
+    "id": 1,
+    "isFavorite": false,
+    "thumbnailUrl": "https://thumbnailUrl",
+    "title": "photo",
+    "url": "https://url",
+  },
+}
+`;
+
+exports[`Album component Отображение в открытом состоянии Проверка обработки события removeFromFavorites 2`] = `
+Array [
+  "REMOVE_FROM_FAVORITES",
+  Object {
+    "albumId": 1,
+    "id": 1,
+    "thumbnailUrl": "https://thumbnailUrl",
+    "title": "photo",
+    "url": "https://url",
+  },
+]
+`;
+
+exports[`Album component Отображение в открытом состоянии Фотографии отображаются при клике на ListItem 1`] = `
+<div class="internal list-item">
+  <div class="list-item-header">
+    <list-item-button-stub isopen="false"
+                           class="list-item-button"
+    >
+    </list-item-button-stub>
+    <div class="album-label">
+      test
+    </div>
+  </div>
+  <div class="list-item-content">
+    <div class="list-photo">
+      <photo-stub photo="[object Object]">
+      </photo-stub>
+    </div>
+  </div>
+</div>
+`;

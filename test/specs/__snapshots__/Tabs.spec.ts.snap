@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs component Рендеринг 1`] = `
+<div class="tabs-container">
+  <div class="tab">
+    Каталог
+  </div>
+  <div class="tab">
+    Избранное
+  </div>
+</div>
+`;

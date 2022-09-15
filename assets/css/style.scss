@@ -1,0 +1,24 @@
+* {
+  font-family: 'Roboto', 'sans-serif';
+  font-size: 16px;
+  color: $black;
+}
+
+body {
+  margin: 0;
+}
+
+.title-text {
+  color: $black;
+  font-size: 18px;
+  margin: 0;
+
+  &__bold {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  &.empty-text__bold {
+    margin-bottom: 8px;
+  }
+}

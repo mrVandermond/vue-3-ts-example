@@ -1,0 +1,5 @@
+.eslintrc.js
+jest.conf.js
+test/mocks
+test/coverage
+webpack.conf.js

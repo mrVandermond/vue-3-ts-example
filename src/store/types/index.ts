@@ -1,0 +1,28 @@
+/* mutations */
+export enum EMutations {
+  ADD_TO_FAVORITES = 'ADD_TO_FAVORITES',
+  REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES',
+  SET_MODAL_CONFIG = 'SET_MODAL_CONFIG',
+  SET_TITLE_CONFIG = 'SET_TITLE_CONFIG',
+}
+/* mutations */
+/* getters */
+export enum EGetters {
+  IS_FAVORITE_PHOTO_BY_ID = 'IS_FAVORITE_PHOTO_BY_ID',
+}
+/* getters */
+/* actions */
+export enum EActions {
+  GET_FAVORITE_PHOTOS_FROM_LOCAL_STORAGE = 'GET_FAVORITE_PHOTOS_FROM_LOCAL_STORAGE',
+  SET_FAVORITE_PHOTOS_TO_LOCAL_STORAGE = 'SET_FAVORITE_PHOTOS_TO_LOCAL_STORAGE',
+  FETCH_USERS = 'FETCH_USERS',
+  FETCH_ALBUMS_BY_USER_ID = 'FETCH_ALBUMS_BY_USER_ID',
+  FETCH_PHOTOS_BY_ALBUM_ID = 'FETCH_PHOTOS_BY_ALBUM_ID',
+}
+/* actions */
+
+export const storeTypes = {
+  EMutations,
+  EGetters,
+  EActions,
+};
