@@ -3,6 +3,7 @@ import Photo from '@/components/Photo.vue';
 
 import type { Store } from '@/store/types/overrides';
 import type { IPhotoWithIsFavorite } from '@/types';
+import type { SpyInstance } from 'vitest';
 
 import { key, customCreateStore } from '@/store';
 import { storeTypes } from '@/store/types';
@@ -11,6 +12,7 @@ import { state } from '@/store/state';
 import { mutations } from '@/store/mutations';
 import { getters } from '@/store/getters';
 import { actions } from '@/store/actions';
+import { vi } from 'vitest';
 
 import type { TWrapperFactoryReturnType } from '../utils';
 import { wrapperFactory } from '../utils';
@@ -34,8 +36,8 @@ describe('Favorites component', () => {
   const setPhotosToStore = (): void => {
     store.commit(storeTypes.EMutations.ADD_TO_FAVORITES, [EXAMPLE_PHOTO]);
   };
-  let dispatchSpy: jest.SpyInstance<ReturnType<Store['dispatch']>, jest.ArgsType<Store['dispatch']>>;
-  let commitSpy: jest.SpyInstance<ReturnType<Store['commit']>, jest.ArgsType<Store['commit']>>;
+  let dispatchSpy: SpyInstance;
+  let commitSpy: SpyInstance;
 
   beforeEach(() => {
     store = customCreateStore({
@@ -45,10 +47,10 @@ describe('Favorites component', () => {
       actions,
     });
 
-    dispatchSpy = jest.spyOn(store, 'dispatch').mockImplementation(() => new Promise((res) => {
-      res(Promise.resolve([]));
+    dispatchSpy = vi.spyOn(store, 'dispatch').mockImplementation(() => new Promise<void>((res) => {
+      res();
     }));
-    commitSpy = jest.spyOn(store, 'commit');
+    commitSpy = vi.spyOn(store, 'commit');
   });
 
   it('Отображение картинки, когда список пуст', () => {
@@ -74,7 +76,7 @@ describe('Favorites component', () => {
     await flushPromises();
 
     expect(wrapper.find<HTMLImageElement>('img').exists()).toBe(true);
-    expect(dispatchSpy).toHaveBeenCalledWith(storeTypes.EActions.GET_FAVORITE_PHOTOS_FROM_LOCAL_STORAGE, undefined);
+    expect(dispatchSpy).toHaveBeenCalledWith(storeTypes.EActions.GET_FAVORITE_PHOTOS_FROM_LOCAL_STORAGE);
   });
 
   it('Назначается класс, когда список не пустой', async () => {
@@ -84,7 +86,7 @@ describe('Favorites component', () => {
 
     await flushPromises();
 
-    expect(wrapper.element.classList).toContain('inner-container__align-start');
+    expect(wrapper.classes()).toContain('inner-container__align-start');
   });
 
   it('Проверка обработки события removeFromFavorites', () => {
@@ -103,6 +105,6 @@ describe('Favorites component', () => {
 
     wrapper.unmount();
 
-    expect(dispatchSpy).toHaveBeenCalledWith(storeTypes.EActions.SET_FAVORITE_PHOTOS_TO_LOCAL_STORAGE, undefined);
+    expect(dispatchSpy).toHaveBeenCalledWith(storeTypes.EActions.SET_FAVORITE_PHOTOS_TO_LOCAL_STORAGE);
   });
 });

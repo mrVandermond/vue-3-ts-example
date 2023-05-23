@@ -25,7 +25,7 @@ describe('ListItem component', () => {
       isInternal: true,
     });
 
-    expect(wrapper.element.classList).toContain('internal');
+    expect(wrapper.classes()).toContain('internal');
   });
 
   it('Рендеринг, когда isLoadingContent = true', () => {

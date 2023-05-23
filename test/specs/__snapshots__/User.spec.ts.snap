@@ -1,33 +1,21 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`User component Отображение, при закрытии юзера 1`] = `
-<div class="list-item">
-  <div class="list-item-header">
-    <list-item-button-stub isopen="false"
-                           class="list-item-button"
-    >
-    </list-item-button-stub>
-    <div class="user-label">
-      Leanne Graham
-    </div>
+exports[`User component > Отображение, при закрытии юзера 1`] = `
+"<div class=\\"list-item\\">
+  <div class=\\"list-item-header\\">
+    <list-item-button-stub isopen=\\"false\\" class=\\"list-item-button\\"></list-item-button-stub>
+    <div class=\\"user-label\\">Leanne Graham</div>
   </div>
-  <div class="list-item-content">
-  </div>
-</div>
+  <div class=\\"list-item-content\\"></div>
+</div>"
 `;
 
-exports[`User component Рендеринг по дефолту 1`] = `
-<div class="list-item">
-  <div class="list-item-header">
-    <list-item-button-stub isopen="false"
-                           class="list-item-button"
-    >
-    </list-item-button-stub>
-    <div class="user-label">
-      Leanne Graham
-    </div>
+exports[`User component > Рендеринг по дефолту 1`] = `
+"<div class=\\"list-item\\">
+  <div class=\\"list-item-header\\">
+    <list-item-button-stub isopen=\\"false\\" class=\\"list-item-button\\"></list-item-button-stub>
+    <div class=\\"user-label\\">Leanne Graham</div>
   </div>
-  <div class="list-item-content">
-  </div>
-</div>
+  <div class=\\"list-item-content\\"></div>
+</div>"
 `;

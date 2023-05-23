@@ -14,8 +14,8 @@ describe('Error component', () => {
       isTitleFromRight: false,
     });
 
-    expect(wrapper.element.classList).toContain('error');
-    expect(wrapper.element.classList).not.toContain('error__title_right');
+    expect(wrapper.classes()).toContain('error');
+    expect(wrapper.classes()).not.toContain('error__title_right');
     expect(wrapper.find('.error-image').classes()).not.toContain('error-image_without-margin');
     expect(wrapper.find<HTMLDivElement>('.error div').classes()).not.toContain('title_position_right');
   });
@@ -25,8 +25,8 @@ describe('Error component', () => {
       isTitleFromRight: true,
     });
 
-    expect(wrapper.element.classList).toContain('error');
-    expect(wrapper.element.classList).toContain('error__title_right');
+    expect(wrapper.classes()).toContain('error');
+    expect(wrapper.classes()).toContain('error__title_right');
     expect(wrapper.find('.error-image').classes()).toContain('error-image_without-margin');
     expect(wrapper.find<HTMLDivElement>('.error div').classes()).toContain('title_position_right');
   });

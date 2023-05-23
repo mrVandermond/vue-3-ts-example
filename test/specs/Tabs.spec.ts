@@ -1,16 +1,18 @@
 import Tabs from '@/components/Tabs.vue';
 
+import { vi } from 'vitest';
+
 import type { TWrapperFactoryReturnType } from '../utils';
 import { wrapperFactory } from '../utils';
 
 let mockNameRoute = 'test';
-const mockPushRouter = jest.fn();
+const mockPushRouter = vi.fn();
 
-jest.mock('vue-router', () => ({
-  useRoute: jest.fn(() => ({
+vi.mock('vue-router', () => ({
+  useRoute: vi.fn(() => ({
     name: mockNameRoute,
   })),
-  useRouter: jest.fn(() => ({
+  useRouter: vi.fn(() => ({
     push: mockPushRouter,
   })),
 }));

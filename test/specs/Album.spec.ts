@@ -3,8 +3,9 @@ import ListItem from '@/components/ListItem.vue';
 import Photo from '@/components/Photo.vue';
 
 import type { Store } from '@/store/types/overrides';
-import type { IAlbum, IPhoto } from '@/types';
+import type { IAlbum, IPhoto, IUser } from '@/types';
 import type { IUseTitleOptions } from '@/composables/title';
+import type { SpyInstance } from 'vitest';
 
 import { nextTick, ref } from 'vue';
 import { flushPromises } from '@vue/test-utils';
@@ -15,6 +16,7 @@ import { mutations } from '@/store/mutations';
 import { getters } from '@/store/getters';
 import { actions } from '@/store/actions';
 
+import { vi } from 'vitest';
 import type { TWrapperFactoryReturnType } from '../utils';
 import { wrapperFactory } from '../utils';
 
@@ -32,23 +34,19 @@ const examplePhotos: IPhoto[] = [
     thumbnailUrl: 'https://thumbnailUrl',
   },
 ];
-const onMouseMoveMock = jest.fn();
+const hoistedVars = vi.hoisted(() => ({
+  onMouseMoveMock: vi.fn(),
+}));
 
-jest.mock('@/composables/title.ts', () => {
-  const originalModule = jest.requireActual<() => IUseTitleOptions>('@/composables/title.ts');
-
-  return {
-    __esModule: true,
-    ...originalModule,
-    default: jest.fn((): IUseTitleOptions => ({
-      onMouseMove: onMouseMoveMock,
-      isShowTitle: ref(false),
-      xCoordMouse: ref(0),
-      yCoordMouse: ref(0),
-      titleText: ref(''),
-    })),
-  };
-});
+vi.mock('../../src/composables/index', () => ({
+  useTitle: vi.fn((): IUseTitleOptions => ({
+    onMouseMove: hoistedVars.onMouseMoveMock,
+    isShowTitle: ref(false),
+    xCoordMouse: ref(0),
+    yCoordMouse: ref(0),
+    titleText: ref(''),
+  })),
+}));
 
 describe('Album component', () => {
   let store!: Store;
@@ -63,8 +61,9 @@ describe('Album component', () => {
       },
     },
   });
-  let commitSpy: jest.SpyInstance<ReturnType<Store['commit']>, jest.ArgsType<Store['commit']>>;
-  let dispatchSpy: jest.SpyInstance<ReturnType<Store['dispatch']>, jest.ArgsType<Store['dispatch']>>;
+
+  let commitSpy: SpyInstance;
+  let dispatchSpy: SpyInstance;
 
   beforeEach(() => {
     store = customCreateStore({
@@ -73,16 +72,16 @@ describe('Album component', () => {
       getters,
       actions,
     });
-    commitSpy = jest.spyOn(store, 'commit');
-    dispatchSpy = jest.spyOn(store, 'dispatch');
+    commitSpy = vi.spyOn(store, 'commit');
+    dispatchSpy = vi.spyOn(store, 'dispatch');
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.unmock('@/composables/title.ts');
+    vi.unmock('@/composables/title.ts');
   });
 
   it('Отображение в закрытом состоянии', () => {
@@ -93,7 +92,7 @@ describe('Album component', () => {
 
   describe('Отображение в открытом состоянии', () => {
     beforeEach(() => {
-      dispatchSpy.mockResolvedValue(Promise.resolve(examplePhotos));
+      dispatchSpy.mockResolvedValue(Promise.resolve(examplePhotos) as unknown as Promise<IUser[]>);
     });
 
     const openListItem = async (wrapper: TWrapperFactoryReturnType): Promise<void> => {
@@ -123,7 +122,7 @@ describe('Album component', () => {
 
       await photo.trigger('mousemove');
 
-      expect(onMouseMoveMock).toHaveBeenCalled();
+      expect(hoistedVars.onMouseMoveMock).toHaveBeenCalled();
     });
 
     it('Проверка обработки события addedToFavorites', async () => {
@@ -163,7 +162,7 @@ describe('Album component', () => {
   });
 
   it('Отображение при закрытии', async () => {
-    dispatchSpy.mockResolvedValue(Promise.resolve(examplePhotos));
+    dispatchSpy.mockResolvedValue(Promise.resolve(examplePhotos) as unknown as Promise<IUser[]>);
 
     const wrapper = getWrapper();
     const listItem = wrapper.findComponent(ListItem);

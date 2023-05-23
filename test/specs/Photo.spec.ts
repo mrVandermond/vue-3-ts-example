@@ -3,6 +3,7 @@ import PhotoStar from '@/components/PhotoStar.vue';
 
 import type { IPhotoWithIsFavorite } from '@/types';
 import type { Store } from '@/store/types/overrides';
+import type { SpyInstance } from 'vitest';
 
 import { customCreateStore, key } from '@/store';
 import { storeTypes } from '@/store/types';
@@ -10,6 +11,7 @@ import { state } from '@/store/state';
 import { mutations } from '@/store/mutations';
 import { getters } from '@/store/getters';
 import { actions } from '@/store/actions';
+import { vi } from 'vitest';
 
 import type { TWrapperFactoryReturnType } from '../utils';
 import { wrapperFactory } from '../utils';
@@ -33,7 +35,7 @@ describe('Photo component', () => {
       plugins: [[store, key]],
     },
   });
-  let commitSpy: jest.SpyInstance<ReturnType<Store['commit']>, jest.ArgsType<Store['commit']>>;
+  let commitSpy: SpyInstance;
 
   beforeEach(() => {
     store = customCreateStore({
@@ -42,11 +44,11 @@ describe('Photo component', () => {
       getters,
       actions,
     });
-    commitSpy = jest.spyOn(store, 'commit');
+    commitSpy = vi.spyOn(store, 'commit');
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('Рендеринг', () => {

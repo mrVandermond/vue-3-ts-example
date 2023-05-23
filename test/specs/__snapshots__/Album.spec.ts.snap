@@ -1,24 +1,18 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Album component Отображение в закрытом состоянии 1`] = `
-<div class="internal list-item">
-  <div class="list-item-header">
-    <list-item-button-stub isopen="false"
-                           class="list-item-button"
-    >
-    </list-item-button-stub>
-    <div class="album-label">
-      test
-    </div>
+exports[`Album component > Отображение в закрытом состоянии 1`] = `
+"<div class=\\"internal list-item\\">
+  <div class=\\"list-item-header\\">
+    <list-item-button-stub isopen=\\"false\\" class=\\"list-item-button\\"></list-item-button-stub>
+    <div class=\\"album-label\\">test</div>
   </div>
-  <div class="list-item-content">
-  </div>
-</div>
+  <div class=\\"list-item-content\\"></div>
+</div>"
 `;
 
-exports[`Album component Отображение в открытом состоянии Проверка обработки события addedToFavorites 1`] = `
-Object {
-  "photo": Object {
+exports[`Album component > Отображение в открытом состоянии > Проверка обработки события addedToFavorites 1`] = `
+{
+  "photo": {
     "albumId": 1,
     "id": 1,
     "isFavorite": true,
@@ -29,11 +23,11 @@ Object {
 }
 `;
 
-exports[`Album component Отображение в открытом состоянии Проверка обработки события addedToFavorites 2`] = `
-Array [
+exports[`Album component > Отображение в открытом состоянии > Проверка обработки события addedToFavorites 2`] = `
+[
   "ADD_TO_FAVORITES",
-  Array [
-    Object {
+  [
+    {
       "albumId": 1,
       "id": 1,
       "thumbnailUrl": "https://thumbnailUrl",
@@ -44,9 +38,9 @@ Array [
 ]
 `;
 
-exports[`Album component Отображение в открытом состоянии Проверка обработки события removeFromFavorites 1`] = `
-Object {
-  "photo": Object {
+exports[`Album component > Отображение в открытом состоянии > Проверка обработки события removeFromFavorites 1`] = `
+{
+  "photo": {
     "albumId": 1,
     "id": 1,
     "isFavorite": false,
@@ -57,10 +51,10 @@ Object {
 }
 `;
 
-exports[`Album component Отображение в открытом состоянии Проверка обработки события removeFromFavorites 2`] = `
-Array [
+exports[`Album component > Отображение в открытом состоянии > Проверка обработки события removeFromFavorites 2`] = `
+[
   "REMOVE_FROM_FAVORITES",
-  Object {
+  {
     "albumId": 1,
     "id": 1,
     "thumbnailUrl": "https://thumbnailUrl",
@@ -70,22 +64,16 @@ Array [
 ]
 `;
 
-exports[`Album component Отображение в открытом состоянии Фотографии отображаются при клике на ListItem 1`] = `
-<div class="internal list-item">
-  <div class="list-item-header">
-    <list-item-button-stub isopen="false"
-                           class="list-item-button"
-    >
-    </list-item-button-stub>
-    <div class="album-label">
-      test
+exports[`Album component > Отображение в открытом состоянии > Фотографии отображаются при клике на ListItem 1`] = `
+"<div class=\\"internal list-item\\">
+  <div class=\\"list-item-header\\">
+    <list-item-button-stub isopen=\\"false\\" class=\\"list-item-button\\"></list-item-button-stub>
+    <div class=\\"album-label\\">test</div>
+  </div>
+  <div class=\\"list-item-content\\">
+    <div class=\\"list-photo\\">
+      <photo-stub photo=\\"[object Object]\\"></photo-stub>
     </div>
   </div>
-  <div class="list-item-content">
-    <div class="list-photo">
-      <photo-stub photo="[object Object]">
-      </photo-stub>
-    </div>
-  </div>
-</div>
+</div>"
 `;

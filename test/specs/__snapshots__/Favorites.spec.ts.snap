@@ -1,27 +1,18 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Favorites component Отображение картинки, когда список пуст 1`] = `
-<div class="inner-container">
-  <div class="empty-block">
-    <img src="assets/empty.png"
-         class="empty-image"
-         alt="empty-image"
-    >
-    <p class="title-text title-text__bold">
-      Список избранного пуст
-    </p>
-    <p class="title-text">
-      Добавляйте изображения, нажимая на звездочки
-    </p>
+exports[`Favorites component > Отображение картинки, когда список пуст 1`] = `
+"<div class=\\"inner-container\\">
+  <div class=\\"empty-block\\"><img src=\\"assets/empty.png\\" class=\\"empty-image\\" alt=\\"empty-image\\">
+    <p class=\\"title-text title-text__bold\\"> Список избранного пуст </p>
+    <p class=\\"title-text\\"> Добавляйте изображения, нажимая на звездочки </p>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Favorites component Подгрузка избранных из store 1`] = `
-<div class="inner-container inner-container__align-start">
-  <div class="list-photo">
-    <photo-stub photo="[object Object]">
-    </photo-stub>
+exports[`Favorites component > Подгрузка избранных из store 1`] = `
+"<div class=\\"inner-container inner-container__align-start\\">
+  <div class=\\"list-photo\\">
+    <photo-stub photo=\\"[object Object]\\"></photo-stub>
   </div>
-</div>
+</div>"
 `;

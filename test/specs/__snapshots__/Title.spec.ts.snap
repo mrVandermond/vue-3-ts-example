@@ -1,9 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Title component Title показывается 1`] = `
-<div style="top: 0px; left: 0px;"
-     class="title"
->
-  test_title
-</div>
-`;
+exports[`Title component > Title показывается 1`] = `"<div style=\\"top: 0px; left: 0px;\\" class=\\"title\\">test_title</div>"`;

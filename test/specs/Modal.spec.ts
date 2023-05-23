@@ -1,4 +1,5 @@
 import { nextTick } from 'vue';
+import { vi } from 'vitest';
 
 import Modal from '@/components/Modal.vue';
 
@@ -25,7 +26,7 @@ describe('Modal component', () => {
       actions,
     });
 
-    jest.spyOn(store, 'commit');
+    vi.spyOn(store, 'commit');
   });
 
   const getWrapper = (): TWrapperFactoryReturnType => wrapperFactory(Modal, {

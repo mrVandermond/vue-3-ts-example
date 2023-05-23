@@ -3,3 +3,4 @@ jest.conf.js
 test/mocks
 test/coverage
 webpack.conf.js
+vitest.config.ts

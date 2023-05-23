@@ -1,17 +1,5 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PhotoStar Рендер в активном состоянии 1`] = `
-<div class="photo-star">
-  <img src="assets/star_active.png"
-       alt="star-image"
-  >
-</div>
-`;
+exports[`PhotoStar > Рендер в активном состоянии 1`] = `"<div class=\\"photo-star\\"><img src=\\"assets/star_active.png\\" alt=\\"star-image\\"></div>"`;
 
-exports[`PhotoStar Рендер в неактивном состоянии 1`] = `
-<div class="photo-star">
-  <img src="assets/star_empty.png"
-       alt="star-image"
-  >
-</div>
-`;
+exports[`PhotoStar > Рендер в неактивном состоянии 1`] = `"<div class=\\"photo-star\\"><img src=\\"assets/star_empty.png\\" alt=\\"star-image\\"></div>"`;

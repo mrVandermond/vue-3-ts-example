@@ -15,6 +15,7 @@ import { mutations } from '@/store/mutations';
 import { getters } from '@/store/getters';
 import { actions } from '@/store/actions';
 
+import { vi } from 'vitest';
 import type { TWrapperFactoryReturnType } from '../utils';
 import { wrapperFactory } from '../utils';
 
@@ -62,8 +63,8 @@ describe('User component', () => {
       actions,
     });
 
-    jest.spyOn(store, 'dispatch').mockImplementation(() => new Promise((resolve) => {
-      resolve(Promise.resolve());
+    vi.spyOn(store, 'dispatch').mockImplementation(() => new Promise<void>((resolve) => {
+      resolve();
     }));
   });
 
@@ -98,7 +99,7 @@ describe('User component', () => {
     });
 
     it('Запрос загружается', async () => {
-      jest.spyOn(store, 'dispatch').mockImplementation(() => new Promise((resolve) => {
+      vi.spyOn(store, 'dispatch').mockImplementation(() => new Promise<void>((resolve) => {
         setTimeout(resolve, 10000);
       }));
 
@@ -110,7 +111,7 @@ describe('User component', () => {
     });
 
     it('Запрос упал', async () => {
-      jest.spyOn(store, 'dispatch').mockImplementation(() => new Promise((resolve, reject) => {
+      vi.spyOn(store, 'dispatch').mockImplementation(() => new Promise<void>((resolve, reject) => {
         reject(new Error('Ошибка'));
       }));
 

@@ -16,6 +16,7 @@ import { state } from '@/store/state';
 import { mutations } from '@/store/mutations';
 import { getters } from '@/store/getters';
 import { actions } from '@/store/actions';
+import { vi } from 'vitest';
 import { wrapperFactory } from '../utils';
 
 describe('Catalog component', () => {
@@ -82,7 +83,7 @@ describe('Catalog component', () => {
   });
 
   it('Отображение списка пользователей', async () => {
-    jest.spyOn(store, 'dispatch').mockImplementation(() => new Promise((res) => {
+    vi.spyOn(store, 'dispatch').mockImplementation(() => new Promise<Promise<IUser[]>>((res) => {
       res(Promise.resolve(exampleUsers));
     }));
 
@@ -94,7 +95,7 @@ describe('Catalog component', () => {
   });
 
   it('Отображение во время загрузки', async () => {
-    jest.spyOn(store, 'dispatch').mockImplementation((type): Promise<void> => new Promise((resolve) => {
+    vi.spyOn(store, 'dispatch').mockImplementation((type): Promise<void> => new Promise((resolve) => {
       if (type === storeTypes.EActions.FETCH_USERS) {
         setTimeout(() => {
           resolve();
@@ -114,7 +115,7 @@ describe('Catalog component', () => {
   it('Отображение во время ошибки при загрузке пользователей', async () => {
     const wrapper = getWrapper();
 
-    jest.spyOn(store, 'dispatch').mockImplementation(() => Promise.reject(new Error('Ошибка')));
+    vi.spyOn(store, 'dispatch').mockImplementation(() => Promise.reject(new Error('Ошибка')));
 
     await flushPromises();
 

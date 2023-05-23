@@ -1,22 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Photo component Открытие модалки 1`] = `
-Object {
+exports[`Photo component > Открытие модалки 1`] = `
+{
   "isOpen": true,
   "url": "https://test_url",
 }
 `;
 
-exports[`Photo component Рендеринг 1`] = `
-<div class="photo"
-     data-title="test_title"
->
-  <photo-star-stub isactive="false"
-                   class="photo-star"
-  >
-  </photo-star-stub>
-  <img src="https://test_thumbnail_url"
-       alt="photo-image"
-  >
-</div>
+exports[`Photo component > Рендеринг 1`] = `
+"<div class=\\"photo\\" data-title=\\"test_title\\">
+  <photo-star-stub isactive=\\"false\\" class=\\"photo-star\\"></photo-star-stub><img src=\\"https://test_thumbnail_url\\" alt=\\"photo-image\\">
+</div>"
 `;

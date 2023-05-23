@@ -1,11 +1,5 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ListItemButton Рендер в закрытом состоянии 1`] = `
-<div class="list-item-button">
-</div>
-`;
+exports[`ListItemButton > Рендер в закрытом состоянии 1`] = `"<div class=\\"list-item-button\\"></div>"`;
 
-exports[`ListItemButton Рендер в открытом состоянии 1`] = `
-<div class="is-open list-item-button">
-</div>
-`;
+exports[`ListItemButton > Рендер в открытом состоянии 1`] = `"<div class=\\"is-open list-item-button\\"></div>"`;
